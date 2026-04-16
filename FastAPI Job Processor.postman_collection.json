@@ -1,0 +1,92 @@
+{
+  "info": {
+    "_postman_id": "ff74cffe-18e5-4fc5-a884-4e33bbe2ad38",
+    "name": "FastAPI Job Processor",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "46529020",
+    "_collection_link": "https://go.postman.co/collection/46529020-ff74cffe-18e5-4fc5-a884-4e33bbe2ad38?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Create Job",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "let res = pm.response.json();\r",
+              "pm.environment.set(\"job_id\", res.data.id);"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/jobs",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "jobs"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Job by ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/jobs/{{job_id}}",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "jobs",
+            "{{job_id}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Jobs",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/jobs",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "jobs"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

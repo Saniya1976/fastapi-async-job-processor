@@ -1,52 +1,56 @@
-# FastAPI Async Job Processor
+# ⚡ FastAPI Async Job Processor
 
-A professional, production-ready FastAPI backend implementing a **Clean Architecture** pattern for asynchronous job processing. This project demonstrates how to handle long-running tasks in the background while keeping the API responsive and maintaining a structured data layer.
+A clean, production-grade template demonstrating how to handle **long-running background tasks** without making your users wait. Built with FastAPI and SQLAlchemy using **Clean Architecture** principles.
 
-## 🚀 Features
+---
 
-- **Asynchronous Processing**: Uses FastAPI's `BackgroundTasks` for non-blocking job execution.
-- **Clean Architecture**: Decoupled layers for API, Services, Models, and Schemas.
-- **Unified Response Format**: All API responses follow a consistent `{ success, data, message }` structure.
-- **Robust Error Handling**: Global exception handlers for 404s, 500s, and validation errors.
-- **UUID Identifiers**: Uses UUID4 for job identification to ensure security and uniqueness.
-- **Randomized Simulation**: Background tasks include random delays (5-10s) and success/failure outcomes to simulate real-world conditions.
-- **Automated Logging**: Comprehensive tracking of job lifecycles (creation, start, completion, failure).
-- **SQLite Database**: Lightweight storage using SQLAlchemy 2.0.
+### 🏛 The Restaurant Analogy (How it Works)
+Imagine you are at a busy restaurant:
+1. **The Order (POST /jobs)**: You place your order. The waiter (API) immediately gives you a **Token (Job ID)** and says, *"I've put your order in the queue."*
+2. **The Kitchen (Background Task)**: While you sit comfortably at your table (client), the chef (Background Worker) is busy cooking your meal in the background.
+3. **Checking Status (GET /jobs/{id})**: You can look at the "Order Ready" screen (Poll the API) to see if your token is still *Pending*, *In Progress*, or *Ready (Completed)*.
+
+**This is Asynchronous Processing.** The waiter isn't standing at your table for 20 minutes; he is free to take other orders while your meal is prepared.
+
+---
+
+## 🌟 Features
+- **Non-Blocking Logic**: User receives immediate feedback while heavy processing happens in the background.
+- **Clean Architecture**: Strictly separated layers (**API → Services → Models**) for maximum maintainability.
+- **Unified API Response**: Every response follows the `{ success, data, message }` standard.
+- **Resilient Worker**: If a background task crashes, it gracefully updates the DB to a `failed` state with error details.
+- **UUID Security**: Uses UUID4 for job tracking to prevent ID guessing.
+- **Comprehensive Logging**: Detailed terminal logs for every stage of the job lifecycle.
 
 ## 🛠 Tech Stack
-
-- **Core**: [FastAPI](https://fastapi.tiangolo.com/)
-- **Database**: [SQLAlchemy 2.0](https://www.sqlalchemy.org/) (SQLite)
-- **Validation**: [Pydantic V2](https://docs.pydantic.dev/)
-- **Server**: [Uvicorn](https://www.uvicorn.org/)
-- **Async**: Python `asyncio`
+- **FastAPI**: Modern, high-performance web framework.
+- **SQLAlchemy 2.0**: The industry-standard Python ORM.
+- **Pydantic V2**: Powerful data validation and settings management.
+- **SQLite**: Lightweight, zero-config relational database.
+- **AsyncIO**: Python's native concurrency for non-blocking I/O.
 
 ## 📂 Project Structure
-
 ```text
 app/
-├── api/          # API route handlers & controllers
-├── db/           # Database configuration & session management
-├── models/       # SQLAlchemy database models
-├── schemas/      # Pydantic schemas (Request/Response/Generic)
-├── services/     # Business logic & Background tasks
-└── main.py       # Application entry point & configuration
+├── api/          # HTTP Controllers (Request/Response handling)
+├── services/     # Business Logic & Async Background Workers
+├── models/       # Database Schema (SQLAlchemy Models)
+├── schemas/      # Data Validation (Pydantic Models)
+└── db/           # Database Engine & Session config
 ```
 
-## 🚥 API Endpoints
-
+## 🚥 Key Endpoints
 | Method | Endpoint | Description |
 | :--- | :--- | :--- |
-| `POST` | `/jobs/` | Create a new job and start background processing |
-| `GET` | `/jobs/` | List all jobs sorted by creation date (latest first) |
-| `GET` | `/jobs/{id}`| Get the current status and result of a specific job |
-| `PATCH`| `/jobs/{id}`| Manually update job fields (internal/admin) |
-| `DELETE`| `/jobs/{id}`| Remove a job record from the database |
+| `POST` | `/jobs/` | Queue a new job (Returns Job ID immediately) |
+| `GET` | `/jobs/` | List all jobs (Sorted Latest First) |
+| `GET` | `/jobs/{id}`| Check real-time status/result of a job |
 
-## 📦 How to Run Locally
+## 📦 Getting Started
 
-### 1. Clone the repository
+1. **Install Dependencies**:
 ```bash
+<<<<<<< HEAD
 git clone https://github.com/Saniya1976/fastapi-async-job-processor
 cd fastapi-async-job-processor
 ```
@@ -56,45 +60,44 @@ It is recommended to use a virtual environment:
 ```bash
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
+=======
+>>>>>>> 6369577 (Developed asynchronous job processing backend using FastAPI with background tasks, status tracking, and clean architecture)
 pip install -r requirements.txt
 ```
 
-### 3. Start the Server
+2. **Run the Server**:
 ```bash
 uvicorn app.main:app --reload
 ```
 
-The API will be available at `http://localhost:8000`.
-Interactive documentation at `http://localhost:8000/docs`.
+3. **Check it out**: 
+Open `http://localhost:8000/docs` to test the API interactively.
 
-## 📝 Example API Responses
+---
 
-### Success Response (Job Created)
+## � Example: Clean JSON Responses
+
+**Successful Query**:
 ```json
 {
   "success": true,
   "data": {
     "id": "550e8400-e29b-41d4-a716-446655440000",
-    "status": "pending",
-    "result": null,
-    "created_at": "2024-03-20T12:00:00Z",
-    "updated_at": "2024-03-20T12:00:00Z"
+    "status": "completed",
+    "result": "Task completed successfully after 7.42s"
   },
-  "message": "Job created and processing started"
+  "message": "Job details retrieved successfully"
 }
 ```
 
-### Error Response (Job Not Found)
+**Job Not Found (Error)**:
 ```json
 {
   "success": false,
   "data": null,
-  "message": "Job with ID 550e8400... not found"
+  "message": "Job with ID ... not found in the system"
 }
 ```
 
-## 🤝 Contributing
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## 📄 License
-This project is licensed under the MIT License.
+---
+*Developed with a focus on **Clarity**, **Maintainability**, and **Performance**.*
