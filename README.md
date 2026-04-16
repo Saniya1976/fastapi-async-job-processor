@@ -76,8 +76,8 @@ Open `http://localhost:8000/docs` to test the API interactively.
 ---
 
 ## � Example: Clean JSON Responses
-<img width="800" height="651" alt="image" src="https://github.com/user-attachments/assets/aa47b2ad-7ddf-439a-b927-c50f876f17b3" />
-<img width="800" height="601" alt="image" src="https://github.com/user-attachments/assets/f5eba6e0-1d58-4c5d-988a-0e043016d46f" />
+<img width="800" height="500" alt="image" src="https://github.com/user-attachments/assets/aa47b2ad-7ddf-439a-b927-c50f876f17b3" />
+<img width="800" height="500" alt="image" src="https://github.com/user-attachments/assets/f5eba6e0-1d58-4c5d-988a-0e043016d46f" />
 
 **Successful Query**:
 ```json
@@ -91,7 +91,7 @@ Open `http://localhost:8000/docs` to test the API interactively.
   "message": "Job details retrieved successfully"
 }
 ```
-<img width="800" height="612" alt="image" src="https://github.com/user-attachments/assets/66c5936d-6513-4186-98c0-08448bb1e42d" />
+<img width="800" height="500" alt="image" src="https://github.com/user-attachments/assets/66c5936d-6513-4186-98c0-08448bb1e42d" />
 
 **Job Not Found (Error)**:
 ```json
@@ -101,7 +101,7 @@ Open `http://localhost:8000/docs` to test the API interactively.
   "message": "Job with ID ... not found in the system"
 }
 ```
-<img width="800" height="558" alt="image" src="https://github.com/user-attachments/assets/f8fe7ae5-8e36-405a-a88e-328b4e1d60ba" />
+<img width="800" height="500" alt="image" src="https://github.com/user-attachments/assets/f8fe7ae5-8e36-405a-a88e-328b4e1d60ba" />
 
 ---
 *Developed with a focus on **Clarity**, **Maintainability**, and **Performance**.*
