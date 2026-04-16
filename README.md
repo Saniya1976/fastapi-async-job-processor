@@ -72,7 +72,7 @@ Open `http://localhost:8000/docs` to test the API interactively.
 
 ---
 
-## � Example: Clean JSON Responses
+## 📸 Example: Clean JSON Responses
 <img width="800" height="500" alt="image" src="https://github.com/user-attachments/assets/aa47b2ad-7ddf-439a-b927-c50f876f17b3" />
 <img width="800" height="500" alt="image" src="https://github.com/user-attachments/assets/f5eba6e0-1d58-4c5d-988a-0e043016d46f" />
 
