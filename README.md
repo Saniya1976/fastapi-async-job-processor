@@ -50,7 +50,6 @@ app/
 
 1. **Install Dependencies**:
 ```bash
-<<<<<<< HEAD
 git clone https://github.com/Saniya1976/fastapi-async-job-processor
 cd fastapi-async-job-processor
 ```
@@ -60,8 +59,6 @@ It is recommended to use a virtual environment:
 ```bash
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
-=======
->>>>>>> 6369577 (Developed asynchronous job processing backend using FastAPI with background tasks, status tracking, and clean architecture)
 pip install -r requirements.txt
 ```
 
